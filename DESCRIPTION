@@ -4,7 +4,7 @@ Title: APA clusters calling and analysis
 Version: 0.9.1
 Author: Heng Heng
 Maintainer: Heng Heng <hengheng@genomics.cn>
-Description: hatpal is a R package for APA identification & analysis in 3' end scrna-seq(10x etc.) 
+Description: hatpal is an R package for APA identification & analysis in 3' end scrna-seq(10x etc.) 
     By clustering the polyA sites, we can get the high-confidence APA clusters and
     output a matrix for downstream analysis.
 License: GPL
