@@ -1,6 +1,6 @@
 # hatpal 🧢
 
-**hatpal** is an R package for alternative polyadenylation (APA) identification & analysis using 3’ scRNA-seq (10x etc.) . 
+**hatpal** is an R package for alternative polyadenylation (APA) identification & analysis using 3’ scRNA-seq (10x etc.). 
 
 By clustering the possible polyA sites, hatpal can find high-confidence APA clusters without GTF file, and create a count matrix for downstream analysis after being annotated.
 
