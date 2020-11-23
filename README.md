@@ -10,9 +10,9 @@ By clustering the possible polyA sites, hatpal can find high-confidence APA clus
 
 ### Dependencies
 
-Softwares: **samtools** and **R**
+Softwares: [**samtools**](http://www.htslib.org/download/) [>= 1.9] and [**R**](https://www.r-project.org/) [>= 3.6.1]
 
-R packages: **data.table**, **GenomicAlignments**, **kpeaks** and **Ckmeans.1d.dp**
+R packages: [**data.table**](https://cran.r-project.org/web/packages/data.table/index.html) [1.13.2], [**GenomicAlignments**](https://bioconductor.org/packages/release/bioc/html/GenomicAlignments.html) [1.24.0], [**kpeaks**](https://cran.r-project.org/web/packages/kpeaks/index.html) [1.1.0] and **[Ckmeans.1d.dp](https://cran.r-project.org/web/packages/Ckmeans.1d.dp/index.html)** [4.3.3]
 
 ```R
 if (!requireNamespace("BiocManager", quietly=TRUE))
@@ -23,16 +23,13 @@ if (!require("Ckmeans.1d.dp")) install.packages("Ckmeans.1d.dp")
 if (!require("GenomicAlignments")) BiocManager::install("GenomicAlignments")
 ```
 
+
+
 ### Installation
 
-hatpal can be installed from github through devtools:
+The latest hatpal release can be downloaded [here](https://github.com/HHengUG/hatpal/releases).
 
-```R
-library(devtools)
-devtools::install_github('HHengUG/hatpal')
-```
-
-hatpal can also be installed as followed in linux:
+hatpal can be installed as followed in linux:
 
 ```shell
 R CMD INSTALL hatpal_0.9.1.tar.gz
@@ -43,6 +40,15 @@ and in windows:
 ```R
 install.packages("hatpal_0.9.1.zip", repos = NULL, type = "win.binary")
 ```
+
+hatpal can also be installed from github through [devtools](https://github.com/r-lib/devtools):
+
+```R
+library(devtools)
+devtools::install_github('HHengUG/hatpal')
+```
+
+
 
 ### Input preparation
 
@@ -66,7 +72,7 @@ samtools sort input/3S_test.bam > input/3S_input.sorted.bam &
 samtools index -b input/3S_input.sorted.bam &
 ```
 
-The output is an indexed BAM file containing soft-clipped reads needed in hatpal.
+The output is an indexed BAM file (input/3S_input.sorted.bam) containing soft-clipped reads needed in hatpal.
 
 
 
@@ -74,7 +80,9 @@ The output is an indexed BAM file containing soft-clipped reads needed in hatpal
 
 hatpal includes five steps and functions.
 
-Before you run these functions, you should run:
+You can simply run the script provided [here](https://github.com/HHengUG/hatpal_example), or use the following functions:
+
+Before you run these functions, you should:
 
 ```R
 library(hatpal)
@@ -84,7 +92,7 @@ to library this package
 
 ### ExtractChrinfo
 
-*ExtractChrinfo()* extracts the chromosomes information from the indexed BAM file, including names and length.
+*ExtractChrinfo()* extracts the chromosomes information from the indexed BAM file, including name and length.
 
 The input should be a BAM file with a .bai index in the same directory.
 
@@ -166,9 +174,11 @@ CountCB("output/positive_strand/APA_clusters.out.anno",
         ExtractChrinfo("input/input.sorted.bam"), "output/")
 ```
 
-The outputs are three files (genes.tsv, barcodes.tsv and martrix.mtx) in a directory named "matrix/" under "output/". 
+The outputs are a combined annotated APA clusters file and three files (genes.tsv, barcodes.tsv and martrix.mtx) in a directory named "matrix/" under "output/". 
 
-This can be easily loaded into Seurat:
+The first 8 columns in combined annotated APA clusters file are the same as the output of *AnnoAPAc()*, and the last four columns are cluster unique id, cluster id in each gene, cluster count per gene and min-max normalization value of location in each gene.
+
+The matrix can be easily loaded into [Seurat](https://satijalab.org/seurat/):
 
 ```R
 library(Seurat)
@@ -179,11 +189,28 @@ pbmc.data  <- Read10X("output/matrix/")
 
 ## Sample 🎥
 
-The [3k PBMC dataset](https://support.10xgenomics.com/single-cell-gene-expression/datasets/1.0.0/pbmc3k) from 10x Genomics can be used for testing.
+The [3k PBMC dataset](https://support.10xgenomics.com/single-cell-gene-expression/datasets/1.0.0/pbmc3k) from 10x Genomics were used for testing.
+
+The sample outputs can be found [here](https://github.com/HHengUG/hatpal_example/tree/main).
+
+A script to run hatpal automatically can be found [here](https://github.com/HHengUG/hatpal_example) .
+
+
+
+## Contact 📨
+
+Question and feedback are welcome at:
+
+HHeng: hengheng at genomics dot cn
 
 
 
 ## News ✨
+
+2020/11/23
+
+- update README.md
+- update samples
 
 2020/11/6
 
