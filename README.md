@@ -8,6 +8,9 @@ By clustering the possible polyA sites, hatpal can find high-confidence APA clus
 
 ## Before the start 📰
 
+### NEW VERSION COMING SOON
+### And functions for visualization are under preparation
+
 ### Dependencies
 
 Softwares: [**samtools**](http://www.htslib.org/download/) [>= 1.9] and [**R**](https://www.r-project.org/) [>= 3.6.1]
@@ -206,6 +209,10 @@ HHeng: hengheng at genomics dot cn
 
 
 ## News ✨
+
+2021/01/20
+
+- update README.md
 
 2020/11/23
 
