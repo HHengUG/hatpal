@@ -8,8 +8,8 @@ By clustering the possible polyA sites, hatpal can find high-confidence APA clus
 
 ## Before the start 📰
 
-### NEW VERSION COMING SOON
-### And functions for visualization are under preparation
+### NEW VERSION (hatpal2: https://github.com/HHengUG/hatpal2)
+### hatpal2 provides more precise and rich results！
 
 ### Dependencies
 
@@ -209,6 +209,10 @@ HHeng: hengheng at genomics dot cn
 
 
 ## News ✨
+
+2021/05/03
+
+- update new version (https://github.com/HHengUG/hatpal2)
 
 2021/01/20
 
